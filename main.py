@@ -17,9 +17,18 @@ run = True
 yGameTitle = 500
 # music = pygame.mixer.music.load("Sound/sound" + str(random.randint(1,2)) +".mp3")
 
+# Start menu images
+start_bg = os.path.abspath("Asset/ACAN-MENU/StartMenu.png")
+start_but = os.path.abspath("Asset/Button/StartButton.png")
+game_title = os.path.abspath("Asset/ACAN-MENU/GameTitle.png")
+
+StartMenuBackground = pygame.image.load(start_bg)
+StartButton = pygame.image.load(start_but)
+GameTitle = pygame.image.load(game_title)
+
 # Setup âm thanh
 music_on = True  # ban đầu đang bật nhạc
-sound_files = ["Sound/sound1.mp3", "Sound/sound2.mp3"]
+sound_files = [os.path.abspath("Sound/sound1.mp3"), os.path.abspath("Sound/sound2.mp3")]
 playlist = sound_files[:]  # copy danh sách gốc
 random.shuffle(playlist)   # trộn thứ tự ban đầu
 current_track = 0
@@ -35,7 +44,6 @@ def play_music(file_path):
     except Exception as e:
         print(f"Failed to play {file_path}: {e}")
 
-
 play_music(playlist[current_track])  # Phát bài đầu tiên trong playlist
 
 # Colors    
@@ -50,33 +58,43 @@ GREY = (128, 128, 128)
 # Images for print screen
 # Đầu chương trình
 print_bg_files_no_logo = [
-    "Asset/PrintBackGround/halongbay1.png",
-    "Asset/PrintBackGround/paris1.png",
-    "Asset/PrintBackGround/pyramid1.png",
-    "Asset/PrintBackGround/colosseum1.png",
-    "Asset/PrintBackGround/bigben1.png"
+    os.path.abspath("Asset/PrintBackGround/halongbay1.png"),
+    os.path.abspath("Asset/PrintBackGround/paris1.png"),
+    os.path.abspath("Asset/PrintBackGround/pyramid1.png"),
+    os.path.abspath("Asset/PrintBackGround/colosseum1.png"),
+    os.path.abspath("Asset/PrintBackGround/bigben1.png")
 ]
 
 print_bg_files = [
-    "Asset/PrintBackGround/halongbay.png",
-    "Asset/PrintBackGround/paris.png",
-    "Asset/PrintBackGround/pyramid.png",
-    "Asset/PrintBackGround/colosseum.png",
-    "Asset/PrintBackGround/bigben.png",
+    os.path.abspath("Asset/PrintBackGround/halongbay.png"),
+    os.path.abspath("Asset/PrintBackGround/paris.png"),
+    os.path.abspath("Asset/PrintBackGround/pyramid.png"),
+    os.path.abspath("Asset/PrintBackGround/colosseum.png"),
+    os.path.abspath("Asset/PrintBackGround/bigben.png")
 ]
+
+next_but = os.path.abspath("Asset/Button/NextButton.png")
+previous_but = os.path.abspath("Asset/Button/PreviousButton.png")
+download_but = os.path.abspath("Asset/Button/DownloadButton.png")
+home_but = os.path.abspath("Asset/Button/HomeButton.png")
+
 print_bg_index = 0
 PrintBackground = pygame.image.load(print_bg_files[print_bg_index])
-NextPrintButtonImage = pygame.image.load("Asset/Button/NextButton.png")
-PreviousPrintButtonImage = pygame.image.load("Asset/Button/PreviousButton.png")
-DownloadButtonImage = pygame.image.load("Asset/Button/DownloadButton.png")
-HomePrintButtonImage = pygame.image.load("Asset/Button/HomeButton.png")
-ReturnButtonImage = pygame.image.load("Asset/Button/PreviousButton.png")
+NextPrintButtonImage = pygame.image.load(next_but)
+PreviousPrintButtonImage = pygame.image.load(previous_but)
+DownloadButtonImage = pygame.image.load(download_but)
+HomePrintButtonImage = pygame.image.load(home_but)
+ReturnButtonImage = pygame.image.load(previous_but)
 
 # Images for gameplay screen
-GameplayBackground = pygame.image.load("Asset/RoomBackGround/GameplayBackGround.png")
-CameraButImage = pygame.image.load("Asset/Button/CameraButton.png")
-HomeGameplayButImage = pygame.image.load("Asset/Button/HomeButton.png")
-modelImage = pygame.image.load("Asset/ACAN-MENU/Model.png")
+gameplay_bg = os.path.abspath("Asset/RoomBackGround/GameplayBackGround.png")
+camera_but = os.path.abspath("Asset/Button/CameraButton.png")
+model = os.path.abspath("Asset/ACAN-MENU/Model.png")
+
+GameplayBackground = pygame.image.load(gameplay_bg)
+CameraButImage = pygame.image.load(camera_but)
+HomeGameplayButImage = pygame.image.load(home_but)
+modelImage = pygame.image.load(model)
 SelectionStore = ''
 ShirtImage = ''
 PaintImage = ''
@@ -86,9 +104,29 @@ SparePartsImage = ''
 EmotionImage = ''
 GlassesImage = ''
 
+Shirt_images = [os.path.abspath(f"Asset/Top/top{i + 1}.png") for i in range(14)]
+Paint_images = [os.path.abspath(f"Asset/Bottom/bottom{i + 1}.png") for i in range(14)]
+Shoe_images = [os.path.abspath(f"Asset/Shoe/shoe{i + 1}.png") for i in range(10)]
+Hat_images = [os.path.abspath(f"Asset/Hat/hat{i + 1}.png") for i in range(10)]
+SpareParts_images = [os.path.abspath(f"Asset/SparePart/sp{i + 1}.png") for i in range(10)]
+Emotion_images = [os.path.abspath(f"Asset/Emotion/emotion{i + 1}.png") for i in range(10)]
+
+Shirt_seclection = os.path.abspath("Asset/RoomBackGround/ShirtSelect.png")
+Paint_seclection = os.path.abspath("Asset/RoomBackGround/PaintSelect.png")
+Shoe_seclection = os.path.abspath("Asset/RoomBackGround/ShoeSelect.png")
+Hat_seclection = os.path.abspath("Asset/RoomBackGround/HatSelect.png")
+SpareParts_seclection = os.path.abspath("Asset/RoomBackGround/SparePartSelect.png")
+Emotion_seclection = os.path.abspath("Asset/RoomBackGround/EmotionSelect.png")
 
 # Story Frames
-StoryImage1 = pygame.image.load("Asset/COMIC/1.png")
+StoryFrames = [
+    os.path.abspath("Asset/COMIC/1.png"),
+    os.path.abspath("Asset/COMIC/2.png"),
+    os.path.abspath("Asset/COMIC/3.png"),
+    os.path.abspath("Asset/COMIC/4.png")
+]
+
+StoryImage1 = pygame.image.load(StoryFrames[0])
 StoryImage2 = ''
 StoryImage3 = ''  
 StoryImage4 = ''
@@ -143,10 +181,7 @@ while run:
         if yGameTitle > 0:
             yGameTitle -= 50
 
-        # Images for start screen
-        StartMenuBackground = pygame.image.load("Asset/ACAN-MENU/StartMenu.png")
-        StartButton = pygame.image.load("Asset/Button/StartButton.png")
-        GameTitle = pygame.image.load("Asset/ACAN-MENU/GameTitle.png")
+        
 
         # UI for start screen
         QuitBut = scale_rect(0.02, 0.027, 0.045, 0.08)
@@ -186,13 +221,13 @@ while run:
         StoryFrame4 = scale_rect(0.52, 0.53, 0.44, 0.4)
 
         if int(time.time() - startTime) == 1:  # Show first image for 1 seconds
-            StoryImage2 = pygame.image.load("Asset/COMIC/2.png")
+            StoryImage2 = pygame.image.load(StoryFrames[1])
         elif int(time.time() - startTime) == 2:  # Show second image for 2 seconds
-            StoryImage3 = pygame.image.load("Asset/COMIC/3.png") 
+            StoryImage3 = pygame.image.load(StoryFrames[2]) 
         elif int(time.time() - startTime) == 3:  # Show third image for 3 seconds
-            StoryImage4 = pygame.image.load("Asset/COMIC/4.png")
+            StoryImage4 = pygame.image.load(StoryFrames[3])
         elif int(time.time() - startTime) == 4:  # Show fourth image for 4 seconds
-            StoryMenuNextButtonImage = pygame.image.load("Asset/Button/NextButton.png")  # Show next button
+            StoryMenuNextButtonImage = pygame.image.load(next_but)  # Show next button
 
         # Fill with story menu background
         screen.fill(WHITE)
@@ -295,66 +330,66 @@ while run:
                 if SelectionStore == 'Shirt':
                     for i in range(len(SelectButtons3x5)):
                         if mouseHB.colliderect(SelectButtons3x5[i]):
-                            ShirtImage = pygame.image.load("Asset/Top/top" + str(i + 1) + '.png')
+                            ShirtImage = pygame.image.load(Shirt_images[i])
                             break
                 
                 elif SelectionStore == 'Paint':
                     for i in range(len(SelectButtons3x5)):
                         if mouseHB.colliderect(SelectButtons3x5[i]):
-                            PaintImage = pygame.image.load("Asset/Bottom/bottom" + str(i + 1) + ".png")
+                            PaintImage = pygame.image.load(Paint_images[i])
                             break
                 
                 elif SelectionStore == 'Shoe':
                     for i in range(len(SelectButtons2x5)):
                         if mouseHB.colliderect(SelectButtons2x5[i]):
-                            ShoeImage = pygame.image.load("Asset/Shoe/shoe" + str(i + 1) + ".png")
+                            ShoeImage = pygame.image.load(Shoe_images[i])
                             break
                 
                 elif SelectionStore == 'Hat':
                     for i in range(len(SelectButtons2x5)):
                         if mouseHB.colliderect(SelectButtons2x5[i]):
-                            HatImage = pygame.image.load("Asset/Hat/hat" + str(i + 1) + ".png")
+                            HatImage = pygame.image.load(Hat_images[i])
                             break
                 
                 elif SelectionStore == 'SpareParts':
                     for i in range(len(SelectButtons2x5)):
                         if mouseHB.colliderect(SelectButtons2x5[i]):
-                            SparePartsImage = pygame.image.load("Asset/SparePart/sp" + str(i + 1) + ".png")
+                            SparePartsImage = pygame.image.load(SpareParts_images[i])
                             break
                 
                 elif SelectionStore == 'Emotion':
                     for i in range(len(SelectButtons2x5)):
                         if i < 5:
                             if mouseHB.colliderect(SelectButtons2x5[i]):
-                                EmotionImage = pygame.image.load("Asset/Emotion/emotion" + str(i + 1) + ".png")
+                                EmotionImage = pygame.image.load(Emotion_images[i])
                                 break
                         else:
                             if mouseHB.colliderect(SelectButtons2x5[i]):
-                                GlassesImage = pygame.image.load("Asset/Emotion/emotion" + str(i + 1) + ".png")
+                                GlassesImage = pygame.image.load(Emotion_images[i])
                                 break
 
                 if mouseHB.colliderect(ShirtBut):
-                    GameplayBackground = pygame.image.load("Asset/RoomBackGround/ShirtSelect.png")
+                    GameplayBackground = pygame.image.load(Shirt_seclection)
                     SelectionStore = 'Shirt'
 
                 if mouseHB.colliderect(PaintBut):
-                    GameplayBackground = pygame.image.load("Asset/RoomBackGround/PaintSelect.png")
+                    GameplayBackground = pygame.image.load(Paint_seclection)
                     SelectionStore = 'Paint'
 
                 if mouseHB.colliderect(ShoeBut):
-                    GameplayBackground = pygame.image.load("Asset/RoomBackGround/ShoeSelect.png")
+                    GameplayBackground = pygame.image.load(Shoe_seclection)
                     SelectionStore = 'Shoe'
 
                 if mouseHB.colliderect(HatBut):
-                    GameplayBackground = pygame.image.load("Asset/RoomBackGround/HatSelect.png")
+                    GameplayBackground = pygame.image.load(Hat_seclection)
                     SelectionStore = 'Hat'
 
                 if mouseHB.colliderect(SparePartsBut):
-                    GameplayBackground = pygame.image.load("Asset/RoomBackGround/SparePartSelect.png")
+                    GameplayBackground = pygame.image.load(SpareParts_seclection)
                     SelectionStore = 'SpareParts'
 
                 if mouseHB.colliderect(EmotionBut):
-                    GameplayBackground = pygame.image.load("Asset/RoomBackGround/EmotionSelect.png")
+                    GameplayBackground = pygame.image.load(Emotion_seclection)
                     SelectionStore = 'Emotion'
                 
         screen.blit(pygame.transform.smoothscale(GameplayBackground, (widthSr, heightSr)), (0, 0))  # Fill with gameplay background
@@ -420,16 +455,14 @@ while run:
                     if SparePartsImage != '':
                         screen.blit(pygame.transform.smoothscale(SparePartsImage, (CharacterFrame.width, CharacterFrame.height)), (CharacterFrame.x, CharacterFrame.y))
                     
-                    # Lấy đường dẫn tới thư mục Desktop
-                    desktop_path = os.path.join(os.path.expanduser("~"), "Downloads")
 
                     # Tạo thư mục SavePicture trên Desktop nếu chưa có
-                    save_folder = os.path.join(desktop_path, "SavePicture")
+                    save_folder = os.path.join("SavePicture")
                     if not os.path.exists(save_folder):
                         os.makedirs(save_folder)
 
                     # Tạo tên file ảnh
-                    filename = os.path.join(save_folder, "Screenshot" + str(countFilesInDirectory(save_folder)) + ".png")
+                    filename = os.path.join(save_folder, "Screenshot" + str(countFilesInDirectory(save_folder) + 1) + ".png")
                     
                     # Lấy kích thước thật của màn hình
                     screen_width, screen_height = screen.get_size()
