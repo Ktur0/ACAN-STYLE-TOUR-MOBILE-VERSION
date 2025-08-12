@@ -9,9 +9,10 @@ from kivy.utils import platform
 pygame.init()
 
 # Set up screen
-screenInfo = pygame.display.Info() 
-pygame.display.set_caption("ACAN STYLE TOUR")
-widthSr, heightSr = screenInfo.current_w , screenInfo.current_h
+if platform == "android":
+    screenInfo = pygame.display.Info() 
+    widthSr, heightSr = screenInfo.current_w , screenInfo.current_h
+    
 screen = pygame.display.set_mode((widthSr, heightSr), pygame.RESIZABLE)
 currentScreen = "StartMenu"
 run = True
@@ -531,3 +532,4 @@ while run:
     
 
 pygame.quit()
+
