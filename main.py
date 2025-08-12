@@ -4,6 +4,7 @@ import os
 import time
 import subprocess
 import random
+from kivy.utils import platform
 
 pygame.init()
 
@@ -528,4 +529,5 @@ while run:
     # Update screen
     pygame.display.update()
     
+
 pygame.quit()
