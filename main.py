@@ -11,6 +11,9 @@ pygame.init()
 # Set up screen
 if platform == "android":
     screenInfo = pygame.display.Info() 
+    widthSr, heightSr = screenInfo.current_w - 100 , screenInfo.current_h
+else:
+    screenInfo = pygame.display.Info() 
     widthSr, heightSr = screenInfo.current_w , screenInfo.current_h
     
 screen = pygame.display.set_mode((widthSr, heightSr), pygame.RESIZABLE)
@@ -532,4 +535,5 @@ while run:
     
 
 pygame.quit()
+
 
